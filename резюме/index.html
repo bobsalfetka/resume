@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Розов Владислав Николаевич</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f0f4f8;
+            color: #334155;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .resume {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            color: #f8fafc;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        /* Контейнер для фото */
+        .photo-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 24px auto;
+            border-radius: 50%;
+            border: 3px solid #e2e8f0;
+            overflow: hidden;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.03);
+            border-color: #94a3b8;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 48px 40px;
+        }
+
+        .section {
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid #64748b;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-left-color 0.2s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-left-color: #334155;
+        }
+
+        .info-item .label {
+            font-weight: 600;
+            color: #64748b;
+            min-width: 80px;
+            font-size: 14px;
+        }
+
+        .info-item .value {
+            color: #334155;
+            font-size: 15px;
+        }
+
+        .info-item a {
+            color: #475569;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .info-item a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #334155;
+            transition: width 0.3s ease;
+        }
+
+        .info-item a:hover {
+            color: #1e293b;
+        }
+
+        .info-item a:hover::after {
+            width: 100%;
+        }
+
+        .experience-card, .education-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 24px;
+            border-left: 3px solid #64748b;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+        }
+
+        .experience-card:hover, .education-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-left-color: #334155;
+        }
+
+        .experience-card h3, .education-card h3 {
+            color: #1e293b;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .experience-card .period, .education-card .year {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .experience-card p, .education-card p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .objective-text {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 8px;
+            color: #475569;
+            line-height: 1.7;
+            font-size: 15px;
+            border: 1px solid #e2e8f0;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .objective-text:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: #e2e8f0;
+            color: #334155;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: #334155;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(51, 65, 85, 0.2);
+        }
+
+        .qualities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .quality-item {
+            padding: 14px 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+            color: #475569;
+            border-left: 3px solid #94a3b8;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .quality-item:hover {
+            border-left-color: #334155;
+            background: #e2e8f0;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 16px;
+            }
+            .header {
+                padding: 32px 24px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 32px 24px;
+            }
+            .photo-container {
+                width: 130px;
+                height: 130px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <div class="header">
+            <div class="photo-container">
+                <img src="./img/photo.jfif" alt="Фотография">
+            </div>
+            <h1>Розов Владислав Николаевич</h1>
+            <p>Разработчик web и мультимедийных приложений</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Личные данные</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">ФИО:</span>
+                        <span class="value">Розов Владислав Николаевич</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Возраст:</span>
+                        <span class="value">18 лет (13.12.2007)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Телефон:</span>
+                        <span class="value">+7 (953) 269-74-07</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Почта:</span>
+                        <span class="value"><a href="mailto:vladrozov07@gmail.com">vladrozov07@gmail.com</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Цель</h2>
+                <div class="objective-text">
+                    Получение должности разработчика web и мультимедийных приложений для применения профессиональных знаний на практике, участия в создании качественных цифровых продуктов и дальнейшего профессионального роста в рамках команды специалистов.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Опыт работы</h2>
+                <div class="experience-card">
+                    <h3>Управляющая компания «Луч», IT-отдел</h3>
+                    <div class="period">Производственная практика (2 этапа), общий стаж: 1 год 2 месяца</div>
+                    <p>Участие в работе IT-отдела компании. Выполнение задач по поддержке внутренней IT-инфраструктуры, помощь в разработке и сопровождении веб-ресурсов и мультимедийных приложений, работающих в интересах управляющей компании.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Образование</h2>
+                <div class="education-card">
+                    <h3>АПОУ ВО ВКСиИТ</h3>
+                    <div class="year">Ожидаемый год окончания: 2027</div>
+                    <p>Специальность: Разработчик web и мультимедийных приложений</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Профессиональные навыки</h2>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Адаптивная верстка</span>
+                    <span class="skill-tag">Основы UI/UX</span>
+                    <span class="skill-tag">Работа с мультимедиа</span>
+                    <span class="skill-tag">Системы контроля версий (Git)</span>
+                    <span class="skill-tag">Графические редакторы</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Личные качества</h2>
+                <div class="qualities-list">
+                    <div class="quality-item">Ответственность</div>
+                    <div class="quality-item">Высокая обучаемость</div>
+                    <div class="quality-item">Внимательность к деталям</div>
+                    <div class="quality-item">Коммуникабельность</div>
+                    <div class="quality-item">Умение работать в команде</div>
+                    <div class="quality-item">Аналитическое мышление</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
